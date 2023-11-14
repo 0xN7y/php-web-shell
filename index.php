@@ -3,7 +3,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>N7y webshell</title>
+	<title>webshell</title>
 	<style type="text/css">
 		* {
 		    padding: 0;
